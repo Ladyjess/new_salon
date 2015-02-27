@@ -62,7 +62,7 @@ require 'spec_helper'
     it "lets you delete a stylist from the database" do
       stylist = Stylist.new({:name => "Kathy", :id => nil})
       stylist.save
-      client = Client.new({:name => "Mary - Hair color", :stylist_id => stylist_id, :appointment_date => appointment_date})
+      client = Client.new({:name => "Mary", :stylist_id => stylist.id, :appointment_date => "2015-02-10"})
       client.save
       stylist2 = Stylist.new({:name => "Princess", :id => nil})
       stylist2.save
@@ -76,9 +76,9 @@ require 'spec_helper'
     it "returns an array of clients for the stylist" do
       test_stylist = Stylist.new({:name => "Jasmine", :id => nil})
       test_stylist.save
-      test_client = Client.new({:name => "Mary - Hair dye", :stylist_id => test_stylist.id, :appointment_date => "2015-02-10"})
+      test_client = Client.new({:name => "Mary", :stylist_id => test_stylist.id, :appointment_date => "2015-02-10"})
       test_client.save
-      test_client2 = Client.new({:name => "John - Hair cut", :stylist_id => test_stylist.id, :appointment_date => "2015-05-10"})
+      test_client2 = Client.new({:name => "John", :stylist_id => test_stylist.id, :appointment_date => "2015-05-10"})
       test_client2.save
       expect(test_stylist.clients).to eq ([test_client, test_client2])
     end
