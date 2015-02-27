@@ -27,4 +27,8 @@ class Client
   def ==(another_client)
    self.name.==(another_client.name).&(self.stylist_id.==(another_client.stylist_id)).&(self.appointment_date.==(another_client.appointment_date))
   end
+
+  def delete
+    DB.exec("DELETE FROM clients WHERE id = #{self.id};")
+  end
 end

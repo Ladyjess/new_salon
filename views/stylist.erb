@@ -1,0 +1,29 @@
+<h1>Add a client to <%= @stylist.name %> </h1>
+<div class="form-group">
+<form action="/clients" method="post">
+<input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id %>">
+
+<label for="name">Client name:</label>
+<input id="name" name="name" type="text" class="form-control">
+
+<label for="appointment_date">Enter the appointment date:</label>
+<input placeholder="e.g. 2015-04-10 or April 20, 2015" class="form-control" name="appointment_date" type="text">
+
+<button type="submit" class="btn btn-sm btn-success">Add client</button>
+</form>
+
+</div>
+
+<% if @stylist.clients.any?%>
+<h3>Here are all the clients for this stylist:</h3>
+<ul>
+<% @stylist.clients.each do |client| %>
+<li><%= client.name %> &nbsp;<%= client.appointment_date %></li>
+<% end %>
+</ul>
+<% else %>
+<p>There are no clients yet!</p>
+<% end %>
+
+<p><a href="/stylists/<%= @stylist.id %>/edit">Edit <%= @stylist.name %></a></p>
+<p><a href="/">Return to Main Page</a></p>
