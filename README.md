@@ -22,7 +22,7 @@ Enter the database ```\c hair_salon```
 
 Step 2. ```CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR)```
 
-Step 3. ```CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR, stylist id INT, appointment_date DATE)```
+Step 3. ```CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR, stylist_id INT, appointment_date DATE)```
 
 Step 4. ```CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon```
 
